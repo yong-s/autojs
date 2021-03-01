@@ -1,5 +1,5 @@
 /**
- * 自动刷单小红书--领取任务
+ * 自动刷单小红书--领取任务for小米4
  * auth:ys
  * QQ：861443216
  */
@@ -18,6 +18,7 @@ function main() {
     for (i=1; i<134; i++)  {
         getTask(i);
     };
+    
     sleep(5000);
     toastLog("领取任务完成，去执行任务");
     goautoperTask();
@@ -29,15 +30,13 @@ function main() {
 // 去任务页面
 function goTask(){
     toastLog("去任务页面");
-    sleep(8000);
-    click(545, 1482);
-    let taskui = className("android.view.View").text("任务").findOne(3000);
+    let taskui = className("android.view.View").desc("任务").findOne(3000);
     if (taskui != null) {
         taskui.click();
         sleep(3000);
     } else {
         toastLog("没找到");
-        // sendMes("没找到,请看日志");
+        sendMes("没找到,请看日志");
         exit();
     }
     
@@ -48,7 +47,7 @@ function goTask(){
 function getTask(i) {
     try {
         toastLog("开始领取第"+i+"个任务");
-        let gettask = text("领取").findOne(3000);
+        let gettask = desc("领取").findOne(3000);
         if (gettask != null) {
              gettask.click();
              sleep(3000);
