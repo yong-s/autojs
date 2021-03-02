@@ -1,5 +1,5 @@
 /**
- * 自动刷单小红书--执行任务
+ * 自动刷单小红书
  * auth:ys
  * QQ：861443216
  */
@@ -14,9 +14,15 @@ main();
 // 主程序
 function main() {
     goTask();
-    
-    gomyTask();
 
+    for (i=1; i<134; i++)  {
+        getTask(i);
+    };
+    sleep(5000);
+    toastLog("领取任务完成，去执行任务");
+
+    gomyTask();
+    
     // 请求截图权限
     if(!requestScreenCapture()){
         toastLog("请求截图失败");
@@ -27,7 +33,7 @@ function main() {
     for (i=1; i<134; i++)  {
         perTask(i);
     };
-   
+
 }
 
 // 去任务页面
@@ -46,6 +52,26 @@ function goTask(){
         sendMes("没找到,请看日志");
         exit();
     }
+}
+
+// 领取任务
+function getTask(i) {
+    try {
+        toastLog("开始领取第"+i+"个任务");
+        let gettask = text("领取").findOne(3000);
+        if (gettask != null) {
+             gettask.click();
+             sleep(3000);
+            }
+        else {
+                toastLog("没找到");
+                sendMes("没找到,请看日志");
+                exit();
+            }
+    } catch (e) {
+        return false;
+    }
+
 }
 
 // 去我的任务
