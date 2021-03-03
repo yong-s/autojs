@@ -20,7 +20,6 @@ function main() {
     // 请求截图权限
     if(!requestScreenCapture()){
         toastLog("请求截图失败");
-        sendMes("请求截图失败");
         exit();
     }
 
@@ -43,7 +42,6 @@ function goTask(){
         sleep(3000);
     } else {
         toastLog("没找到");
-        sendMes("没找到,请看日志");
         exit();
     }
 }
@@ -58,7 +56,6 @@ function gomyTask() {
             sleep(3000);
         }else {
             toastLog("没找到");
-            sendMes("没找到,请看日志");
             exit();
         }
         
@@ -80,7 +77,6 @@ function perTask(i) {
                 sleep(3000);
             }else {
                 toastLog("没找到");
-                sendMes("没找到,请看日志");
                 exit();
             }
             
@@ -93,7 +89,6 @@ function perTask(i) {
                 sleep(5000);
             } else {
                 toastLog("没找到");
-                sendMes("没找到,请看日志");
                 exit();
             }
            
@@ -105,7 +100,6 @@ function perTask(i) {
                 sleep(3000);
             }else {
                 toastLog("没找到");
-                sendMes("没找到,请看日志");
                 exit();
                 return false;
             }
@@ -122,7 +116,6 @@ function perTask(i) {
                         log("评论完成");
                     }else {
                         toastLog("没找到");
-                        sendMes("没找到,请看日志");
                         exit();
                         return false;
                     }
@@ -149,7 +142,6 @@ function perTask(i) {
                 sleep(3000);
             } else {
                 toastLog("没找到");
-                sendMes("没找到,请看日志");
                 exit();
                 return false;
             }
@@ -182,7 +174,6 @@ function perTask(i) {
                     sleep(3000);    
                 } else {
                     toastLog("没找到");
-                    sendMes("没找到,请看日志");
                     exit();
                     return false;
                 }
@@ -206,16 +197,16 @@ function catScreen() {
 }
 
 // 推送通知
-function sendMes(d) {
+// function sendMes(d) {
 
-    let key = "SCT13210TOaMHT7LKlfbv0Tiao1jaoM3Z";
-    let url = "https://sctapi.ftqq.com/" + key + ".send";
-    let title = "小红书刷单";
-    let desp = d;
+//     let key = "SCT13210TOaMHT7LKlfbv0Tiao1jaoM3Z";
+//     let url = "https://sctapi.ftqq.com/" + key + ".send";
+//     let title = "小红书刷单";
+//     let desp = d;
 
-    r = http.post(url, {
-        title: title,
-        desp: desp
-    })
-    toastLog(r.body.string());
-}
+//     r = http.post(url, {
+//         title: title,
+//         desp: desp
+//     })
+//     toastLog(r.body.string());
+// }
